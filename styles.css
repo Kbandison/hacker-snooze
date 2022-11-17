@@ -64,23 +64,15 @@ body{
 
 @media screen and (max-width: 700px){
   #page {
-      font-size:large;
+      font-size:x-large;
       height: 77vh;
-      overflow: hidden;
   }
 
   #page::-webkit-scrollbar {
     width: 15px;
     height: 15px;
-    /* display: none; */
+    display: none;
   }
 
-  /* #page::-webkit-scrollbar-hover {
-    display: contents;
-  } */
-
-  #page:hover{
-    overflow: scroll;
-  }
 
 }
