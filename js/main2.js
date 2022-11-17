@@ -22,7 +22,7 @@ let idAPIrequest = async () => {
   console.log(data);
 
 
-  data.forEach(e => {
+  data.forEach((e,i) => {
 
     let storyAPIrequest = async () => {
       let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
@@ -55,13 +55,15 @@ let idAPIrequest = async () => {
       nameTag.href = `https://news.ycombinator.com/item?id=${e}`
 
       /*Appends */
-      storyInfo.appendChild(storyItem);
-      storyItem.appendChild(num);
-      storyItem.appendChild(name);
-      name.appendChild(nameTag);
-      storyItem.appendChild(username);
-      storyItem.appendChild(score);
-      storyItem.appendChild(comments);
+      if(i < 100){
+        storyInfo.appendChild(storyItem);
+        storyItem.appendChild(num);
+        storyItem.appendChild(name);
+        name.appendChild(nameTag);
+        storyItem.appendChild(username);
+        storyItem.appendChild(score);
+        storyItem.appendChild(comments);
+      }
     }
 
     storyAPIrequest();

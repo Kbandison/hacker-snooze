@@ -83,5 +83,8 @@ body {
     display: none;
   }
 
+  h3:after{
+    content: ' (Scroll To See More)';
+  }
 
 }
