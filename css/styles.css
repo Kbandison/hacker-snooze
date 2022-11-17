@@ -1,0 +1,88 @@
+#page {
+  border-radius: 5px;
+  font-size: small;
+  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.6), 0 0 20px 0 rgba(87, 115, 153, 0.59);
+  background-color: #bdd5ea;
+  height: 82vh;
+  overflow: auto;
+}
+
+#title {
+  color: black;
+  text-decoration: none;
+}
+
+#title:hover {
+  text-decoration: underline;
+}
+
+#title:visited {
+  color: #fe5f55;
+}
+
+h3 {
+  margin: 20px 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.3), 0 0 20px 0 rgba(87, 115, 153, 0.59);
+  background-color: #fe5f55;
+  color: white;
+  padding: 10px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 0 8px 0 rgba(254, 95, 85, 0.3), 0 0 20px 0 rgba(254, 95, 85, 0.59);
+  background-color: #577399;
+  color: white;
+  margin: 0 0 50px 0;
+  padding: 10px;
+}
+
+body {
+  background-color: #f7f7ff;
+}
+
+#page::-webkit-scrollbar {
+  width: 20px;
+}
+
+#page::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #FE5F55;
+  border-radius: 10px;
+}
+
+#page::-webkit-scrollbar-thumb {
+  background: #577399;
+  border-radius: 10px;
+}
+
+#page::-webkit-scrollbar-thumb:hover {
+  background: #495867;
+}
+
+#options button {
+  border: solid transparent;
+  border-radius: 5px;
+  background-color: #577399;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.19);
+  color: white;
+  text-decoration: none;
+  }
+
+@media screen and (max-width: 700px) {
+  #page {
+    font-size: x-large;
+    height: 77vh;
+  }
+
+  #page::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+    display: none;
+  }
+
+
+}
