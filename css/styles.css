@@ -30,15 +30,13 @@ h3 {
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 0 0 8px 0 rgba(254, 95, 85, 0.3), 0 0 20px 0 rgba(254, 95, 85, 0.59);
   background-color: #577399;
   color: white;
   margin: 0 0 50px 0;
-  padding: 10px;
 }
 
 body {
@@ -70,6 +68,28 @@ body {
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.19);
   color: white;
   text-decoration: none;
+  }
+
+  #comment-row{
+    border: solid #FE5F55;
+  }
+
+  #comments{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #comments button{
+    border: solid transparent;
+    border-radius: 5px;
+    background-color: #577399;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.19);
+    color: white;
+    text-decoration: none;
+  }
+
+  img{
+    width: 100px;
   }
 
 @media screen and (max-width: 700px) {

@@ -15,6 +15,7 @@ let storyInfo = document.querySelector('#story-info');
 let number = 1;
 let stories = document.querySelector('#stories')
 let ask = document.querySelector('#ask');
+let checked = false;
 
 
 let idAPIrequest = async () => {
@@ -23,20 +24,22 @@ let idAPIrequest = async () => {
   console.log(data);
 
 
-  data.forEach((e,i) => {
+  data.forEach((e, i) => {
 
     let storyAPIrequest = async () => {
       let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
       let story = await response.json();
 
       /*Created Elements*/
-      let storyItem = document.createElement('tr')
+      let storyItem = document.createElement('tr');
       let num = document.createElement('th');
       let name = document.createElement('td');
       let nameTag = document.createElement('a');
       let score = document.createElement('td');
       let comments = document.createElement('td');
       let username = document.createElement('td');
+      let show = document.createElement('button');
+      let hide = document.createElement('button');
 
       /*Element Edits */
 
@@ -46,6 +49,8 @@ let idAPIrequest = async () => {
       comments.id = 'comments';
       username.id = 'user';
 
+      show.innerText = 'Show';
+      hide.innerText = 'Hide';
       num.innerText = number++;
       nameTag.innerText = story.title;
       score.innerText = story.score;
@@ -53,10 +58,11 @@ let idAPIrequest = async () => {
       username.innerText = story.by;
 
       nameTag.target = 'blank';
-      nameTag.href = story.url
+      nameTag.href = story.url;
+      hide.style.display = 'none';
 
       /*Appends */
-      if(i < 100){
+      if (i < 100) {
         storyInfo.appendChild(storyItem);
         storyItem.appendChild(num);
         storyItem.appendChild(name);
@@ -64,14 +70,56 @@ let idAPIrequest = async () => {
         storyItem.appendChild(username);
         storyItem.appendChild(score);
         storyItem.appendChild(comments);
+        comments.appendChild(show);
+        comments.appendChild(hide);
       }
+
+      show.addEventListener('click', () => {
+
+        show.style.display = 'none';
+        hide.style.display = 'block';
+
+        let number = 1;
+        let commTable = document.createElement('table');
+
+        
+        story.kids.forEach(e => {
+          let commentAPIrequest = async () => {
+            let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
+            let comment = await response.json();
+
+
+            
+            let commNum = document.createElement('th');
+            let commList = document.createElement('tr');
+            let comm = document.createElement('td');
+
+            // comm.colSpan = '4';
+            comm.innerText = comment.text;
+            commNum.innerText = number++ + ') ';
+            commTable.className = 'table mb-0';
+            commList.id = 'comment-row';
+
+            if (number < 12) {
+              commList.appendChild(commNum);
+              storyItem.appendChild(commTable);
+              commTable.appendChild(commList);
+              commList.appendChild(comm);
+            }
+          }
+          commentAPIrequest();
+        })
+
+        hide.addEventListener('click', () => {
+          show.style.display = 'block';
+          hide.style.display = 'none';
+          commTable.remove();
+        });
+      })
+      
     }
-
     storyAPIrequest();
-
   })
-
 }
-
 idAPIrequest();
 
