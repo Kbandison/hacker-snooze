@@ -4,25 +4,18 @@
 //Ask ID endpoin: https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty
 //Story endpoint: https://hacker-news.firebaseio.com/v0/item/ITEM-ID.json?print=pretty
 
-//Title of story
-//Score
-//Kids = number of comments
-//Username
-
 let pageDiv = document.querySelector('#page');
 let id = document.querySelector('table');
 let storyInfo = document.querySelector('#story-info');
 let number = 1;
 let stories = document.querySelector('#stories')
 let ask = document.querySelector('#ask');
-let checked = false;
 
 
 let idAPIrequest = async () => {
   let response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
   let data = await response.json();
   console.log(data);
-
 
   data.forEach((e, i) => {
 
@@ -82,14 +75,12 @@ let idAPIrequest = async () => {
         let number = 1;
         let commTable = document.createElement('table');
 
-        
+
         story.kids.forEach(e => {
           let commentAPIrequest = async () => {
             let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
             let comment = await response.json();
 
-
-            
             let commNum = document.createElement('th');
             let commList = document.createElement('tr');
             let comm = document.createElement('td');
@@ -116,7 +107,7 @@ let idAPIrequest = async () => {
           commTable.remove();
         });
       })
-      
+
     }
     storyAPIrequest();
   })

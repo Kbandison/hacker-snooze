@@ -3,7 +3,7 @@
   font-size: small;
   box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.6), 0 0 20px 0 rgba(87, 115, 153, 0.59);
   background-color: #bdd5ea;
-  height: 82vh;
+  height: 80vh;
   overflow: auto;
 }
 
@@ -65,46 +65,66 @@ body {
   border: solid transparent;
   border-radius: 5px;
   background-color: #577399;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.39);
+  color: white;
+  text-decoration: none;
+}
+
+#options button:hover {
+  background-color: #495867;
+}
+
+#options button:active {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.0), 0 6px 20px 0 rgba(87, 115, 153, 0.0);
+  background-color: #FE5F55;
+}
+
+#comment-row {
+  border: solid #FE5F55;
+}
+
+#comments {
+  display: flex;
+  justify-content: space-around;
+}
+
+#comments button {
+  border: solid transparent;
+  border-radius: 5px;
+  background-color: #577399;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.19);
   color: white;
   text-decoration: none;
-  }
+  width: 70px;
+}
 
-  #comment-row{
-    border: solid #FE5F55;
-  }
+#comments button:hover {
+  background-color: #495867;
+}
 
-  #comments{
-    display: flex;
-    justify-content: space-around;
-  }
+#comments button:active {
+  width: 50px;
+  height: 30px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.0), 0 6px 20px 0 rgba(87, 115, 153, 0.0);
+  background-color: #FE5F55;
+}
 
-  #comments button{
-    border: solid transparent;
-    border-radius: 5px;
-    background-color: #577399;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(87, 115, 153, 0.19);
-    color: white;
-    text-decoration: none;
-  }
-
-  img{
-    width: 100px;
-  }
+img {
+  width: 100px;
+}
 
 @media screen and (max-width: 700px) {
   #page {
-    font-size: x-large;
-    height: 77vh;
+    font-size: large;
+    height: 70vh;
   }
 
   #page::-webkit-scrollbar {
     width: 15px;
     height: 15px;
-    display: none;
   }
 
-  h3:after{
+  h3:after {
     content: ' (Scroll To See More)';
   }
 }

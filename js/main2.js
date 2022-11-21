@@ -1,14 +1,5 @@
 'use strict';
 
-//Story ID endpoint: https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
-//Ask ID endpoin: https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty
-//Story endpoint: https://hacker-news.firebaseio.com/v0/item/ITEM-ID.json?print=pretty
-
-//Title of story
-//Score
-//Kids = number of comments
-//Username
-
 let pageDiv = document.querySelector('#page');
 let id = document.querySelector('table');
 let storyInfo = document.querySelector('#story-info');
@@ -22,7 +13,7 @@ let idAPIrequest = async () => {
   console.log(data);
 
 
-  data.forEach((e,i) => {
+  data.forEach((e, i) => {
 
     let storyAPIrequest = async () => {
       let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
@@ -40,7 +31,6 @@ let idAPIrequest = async () => {
       let hide = document.createElement('button');
 
       /*Element Edits */
-
       num.id = 'number';
       nameTag.id = 'title';
       score.id = 'score';
@@ -60,7 +50,7 @@ let idAPIrequest = async () => {
       hide.style.display = 'none';
 
       /*Appends */
-      if(i < 100){
+      if (i < 100) {
         storyInfo.appendChild(storyItem);
         storyItem.appendChild(num);
         storyItem.appendChild(name);
@@ -80,14 +70,14 @@ let idAPIrequest = async () => {
         let number = 1;
         let commTable = document.createElement('table');
 
-        
+
         story.kids.forEach(e => {
           let commentAPIrequest = async () => {
             let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${e}.json?print=pretty`);
             let comment = await response.json();
 
 
-            
+
             let commNum = document.createElement('th');
             let comm = document.createElement('tr');
             let commList = document.createElement('td');
@@ -114,7 +104,7 @@ let idAPIrequest = async () => {
         });
       })
     }
-    
+
     storyAPIrequest();
   })
 }
